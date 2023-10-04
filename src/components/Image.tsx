@@ -21,7 +21,7 @@ const Image: FC<ImagePros> = ({
 }: ImagePros) => {
   const rectSize: rectSizeProps = {
     sm: [150, 'auto'],
-    lg: [210, 'auto'],
+    lg: [180, 'auto'],
   };
 
   return (

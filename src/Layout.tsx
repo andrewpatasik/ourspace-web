@@ -5,7 +5,7 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }: LayoutProps) => {
-  return <div className="relative flex flex-col w-screen min-h-screen px-8">{children}</div>;
+  return <div className="relative flex flex-col min-h-screen px-8">{children}</div>;
 };
 
 export default Layout;

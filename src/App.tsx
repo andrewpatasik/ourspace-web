@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Layout from "./Layout";
 import Navbar from "./components/Navbar";
 import Hero from "./section/Hero";
+import History from "./section/History";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Layout>
         <Navbar />
         <Hero />
+        <History/>
       </Layout>
     </>
   );
