@@ -1,34 +1,52 @@
+import ChevronRightIcon from "../assets/icons/ChevroRightIcon";
+import ChevronLeftIcon from "../assets/icons/ChevronLeftIcon";
+import Button from "../components/Button";
 import ChatBubble from "../components/ChatBubble";
 import Image from "../components/Image";
+import { ButtonClickProps } from "./section";
+
+const chatRecord = [
+  {
+    name: "Gres",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    name: "Andrew",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque justo dui, ultricies.",
+  },
+];
+
+const handleButtonClick:ButtonClickProps = (e) => {
+  console.log(e.currentTarget.name)
+}
+
 
 const History = () => {
-  const chatRecord = [
-    {
-      name: "Gres",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      name: "Andrew",
-      message:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque justo dui, ultricies.",
-    },
-  ];
-
   return (
-    <div className="-mx-8 px-8 pt-[150px] bg-history-background flex min-h-screen">
-      <div className="w-2/5 flex flex-col space-y-3">
+    <div className="-mx-8 px-8 pt-[100px] bg-history-background flex min-h-screen">
+      <div className="w-2/4 flex flex-col space-y-3">
         <h2 className="text-history-headline text-4xl font-bold">
           👫Our History
         </h2>
-        <p className="text-history-subheadline">
+        <p className="text-history-subheadline font-light">
           Do you remember the first time we talked? It’s been a while ago, but
-          since then we already share <span className="font-bold">30795</span> texts, <span className="font-bold">1533</span> funny selfie (including
-          memes ofc 😆) and <span className="font-bold">217</span> random videos. We share memories, emotions and
-          dreams.
+          since then we already share <span className="font-bold">30795</span>{" "}
+          texts, <span className="font-bold">1533</span> funny selfie (including
+          memes ofc 😆) and <span className="font-bold">217</span> random
+          videos. We share memories, emotions and dreams.
         </p>
+        <div className="flex space-x-4">
+          <Button name="left" onClickEvt={handleButtonClick}>
+            <ChevronLeftIcon />
+          </Button>
+          <Button name="right" onClickEvt={handleButtonClick}>
+            <ChevronRightIcon />
+          </Button>
+        </div>
       </div>
-      <div className="relative flex flex-col w-full space-y-8">
-        <div className="w-2/3 mx-auto pl-12 space-y-8 z-10">
+      <div className="relative flex flex-col w-full mt-24 space-y-8">
+        <div className="w-2/3 mx-auto space-y-8 z-10">
           {chatRecord.map(({ name, message }, index) => {
             return (
               <ChatBubble
@@ -44,19 +62,19 @@ const History = () => {
           src="/src/assets/images/history/history-4.webp"
           alt="history-4"
           size="lg"
-          className="top-10 inset-x-28 h-[260px]"
+          className="top-10 inset-x-10 h-[260px]"
         />
         <Image
           src="/src/assets/images/history/history-1.webp"
           alt="history-3"
           size="sm"
-          className="-top-10 inset-x-2/3 h-[110px]"
+          className="-top-24 inset-x-2/3 h-[110px]"
         />
         <Image
           src="/src/assets/images/history/history-2.webp"
           alt="history-2"
           size="lg"
-          className="inset-y-1/4 right-10 h-[260px]"
+          className="inset-y-1/3 right-10 h-[260px]"
         />
       </div>
     </div>

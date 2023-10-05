@@ -58,7 +58,7 @@ const Hero = () => {
         className="bottom-0 right-0 w-[180px] h-[260px]"
       />
 
-      <div className="left-0 pb-4 z-10">
+      <div className="left-0 z-10">
         <p className="text-2xl text-hero-paragraph font-semibold">
           So Where It<br/>All Started? 👀
         </p>
