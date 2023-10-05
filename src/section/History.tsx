@@ -37,10 +37,10 @@ const History = () => {
           videos. We share memories, emotions and dreams.
         </p>
         <div className="flex space-x-4">
-          <Button name="left" onClickEvt={handleButtonClick}>
+          <Button name="left" onClickEvt={handleButtonClick} className="p-4 border rounded-full transition active:bg-white">
             <ChevronLeftIcon />
           </Button>
-          <Button name="right" onClickEvt={handleButtonClick}>
+          <Button name="right" onClickEvt={handleButtonClick} className="p-4 border rounded-full transition active:bg-white">
             <ChevronRightIcon />
           </Button>
         </div>

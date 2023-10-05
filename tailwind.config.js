@@ -40,6 +40,9 @@ export default {
       boxShadow: {
        "chatbubble": "0 35px 60px -15px rgba(0,0,0,0.2)"
       },
+      scale: {
+        "-1": "-1"
+      },
       // fontSize: {
       //   "hero-headline": "160px",
       //   "hero-subheadline": "32px",

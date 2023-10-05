@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import Navbar from "./components/Navbar";
 import Hero from "./section/Hero";
 import History from "./section/History";
+import Timer from "./section/Timer";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Navbar />
         <Hero />
         <History/>
+        <Timer />
       </Layout>
     </>
   );

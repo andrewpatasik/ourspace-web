@@ -4,10 +4,24 @@ interface ButtonProps {
   children?: ReactNode;
   onClickEvt: MouseEventHandler<HTMLButtonElement>;
   name: string;
+  className?: string;
 }
 
-const Button: FC<ButtonProps> = ({ children, onClickEvt, name }: ButtonProps) => {
-  return <button name={name} onClick={onClickEvt} className="p-4 border rounded-full transition active:bg-white">{children}</button>;
+const Button: FC<ButtonProps> = ({
+  children,
+  onClickEvt,
+  name,
+  className,
+}: ButtonProps) => {
+  return (
+    <button
+      name={name}
+      onClick={onClickEvt}
+      className={`${className}`}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;
