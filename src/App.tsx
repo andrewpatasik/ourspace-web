@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./section/Hero";
 import History from "./section/History";
 import Timer from "./section/Timer";
+import Gallery from "./section/Galery";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Hero />
         <History/>
         <Timer />
+        <Gallery />
       </Layout>
     </>
   );
