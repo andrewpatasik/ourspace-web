@@ -6,6 +6,7 @@ import History from "./section/History";
 import Timer from "./section/Timer";
 import Gallery from "./section/Gallery";
 import Music from "./section/Music";
+import Closing from "./section/Closing";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
         <title>𝓯𝓸𝓻 𝓰𝓻𝓮𝓼</title>
       </Helmet>
+
       <Layout>
         <Navbar />
         <Hero />
@@ -21,6 +23,7 @@ const App = () => {
         <Timer />
         <Gallery />
         <Music />
+        <Closing />
       </Layout>
     </>
   );
