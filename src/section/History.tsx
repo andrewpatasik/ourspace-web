@@ -25,7 +25,7 @@ const handleButtonClick:ButtonClickProps = (e) => {
 const History = () => {
   return (
     <div className="-mx-8 px-8 pt-[100px] bg-history-background flex min-h-screen">
-      <div className="w-2/4 flex flex-col space-y-3">
+      <div className="w-3/5 flex flex-col space-y-3">
         <h2 className="text-history-headline text-4xl font-bold">
           👫Our History
         </h2>
@@ -46,7 +46,7 @@ const History = () => {
         </div>
       </div>
       <div className="relative flex flex-col w-full mt-24 space-y-8">
-        <div className="w-2/3 mx-auto space-y-8 z-10">
+        <div className="w-11/12 mx-auto space-y-8 z-10">
           {chatRecord.map(({ name, message }, index) => {
             return (
               <ChatBubble
@@ -62,19 +62,19 @@ const History = () => {
           src="images/history/history-4.webp"
           alt="history-4"
           size="lg"
-          className="top-10 inset-x-10 h-[270px]"
+          className="top-10 -left-20 h-[240px]"
         />
         <Image
           src="images/history/history-1.webp"
           alt="history-3"
           size="sm"
-          className="-top-24 inset-x-2/3 h-[110px]"
+          className="-top-24 inset-x-2/3 h-[100px]"
         />
         <Image
           src="images/history/history-2.webp"
           alt="history-2"
           size="lg"
-          className="inset-y-1/3 right-10 h-[270px]"
+          className="inset-y-1/3 -right-5 h-[240px]"
         />
       </div>
     </div>

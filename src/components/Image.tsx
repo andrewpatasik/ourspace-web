@@ -20,9 +20,9 @@ const Image: FC<ImagePros> = ({
   loading = "eager",
 }: ImagePros) => {
   const rectSize: rectSizeProps = {
-    sm: [150, "auto"],
-    md: [50, "auto"],
-    lg: [180, "auto"],
+    sm: [130, "auto"],
+    md: [500, "auto"],
+    lg: [160, "auto"],
   };
 
   return (
@@ -31,7 +31,7 @@ const Image: FC<ImagePros> = ({
       alt={alt}
       width={rectSize[size][0]}
       height={rectSize[size][1]}
-      className={`absolute object-cover max-w-full bg-gray-100 rounded-3xl ${className}`}
+      className={`absolute object-cover max-w-full bg-gray-100 rounded-xl ${className}`}
       loading={loading}
     />
   );
