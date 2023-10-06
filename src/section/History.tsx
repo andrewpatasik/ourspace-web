@@ -63,18 +63,21 @@ const History = () => {
           alt="history-4"
           size="lg"
           className="top-10 -left-20 h-[240px]"
+          loading="lazy"
         />
         <Image
           src="images/history/history-1.webp"
           alt="history-3"
           size="sm"
           className="-top-24 inset-x-2/3 h-[100px]"
+          loading="lazy"
         />
         <Image
           src="images/history/history-2.webp"
           alt="history-2"
           size="lg"
           className="inset-y-1/3 -right-5 h-[240px]"
+          loading="lazy"
         />
       </div>
     </div>

@@ -18,10 +18,11 @@ const Closing = () => {
           alt="closing-1"
           size="md"
           className="right-8 inset-y-1/3 w-[45%] h-[240px]"
+          loading="lazy"
         />
       </div>
       <footer className="absolute right-0 bottom-0 p-4">
-        <p className="text-sm text-closing-links">Made with ❤️ by Andrew</p>
+        <p className="text-sm">Made with <span className="text-closing-links">❤</span>️ by Andrew</p>
       </footer>
     </div>
   );

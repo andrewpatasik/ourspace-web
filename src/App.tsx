@@ -1,12 +1,7 @@
 import { Helmet } from "react-helmet";
 import Layout from "./Layout";
 import Navbar from "./components/Navbar";
-import Hero from "./section/Hero";
-import History from "./section/History";
-import Timer from "./section/Timer";
-import Gallery from "./section/Gallery";
-import Music from "./section/Music";
-import Closing from "./section/Closing";
+import { Closing, Gallery, Hero, History, Music, Timer } from "./section";
 
 const App = () => {
   return (

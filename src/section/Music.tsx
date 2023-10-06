@@ -29,6 +29,7 @@ const Music = () => {
           alt="music-1"
           size="lg"
           className="-top-10 -left-10 h-[240px]"
+          loading="lazy"
         />
 
         <Image
@@ -36,6 +37,7 @@ const Music = () => {
           alt="music-2"
           size="sm"
           className="bottom-[35%] right-0 h-[100px]"
+          loading="lazy"
         />
       </div>
     </div>
