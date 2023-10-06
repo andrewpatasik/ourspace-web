@@ -59,22 +59,22 @@ const History = () => {
           })}
         </div>
         <Image
-          src="/src/assets/images/history/history-4.webp"
+          src="images/history/history-4.webp"
           alt="history-4"
           size="lg"
-          className="top-10 inset-x-10 h-[260px]"
+          className="top-10 inset-x-10 h-[270px]"
         />
         <Image
-          src="/src/assets/images/history/history-1.webp"
+          src="images/history/history-1.webp"
           alt="history-3"
           size="sm"
           className="-top-24 inset-x-2/3 h-[110px]"
         />
         <Image
-          src="/src/assets/images/history/history-2.webp"
+          src="images/history/history-2.webp"
           alt="history-2"
           size="lg"
-          className="inset-y-1/3 right-10 h-[260px]"
+          className="inset-y-1/3 right-10 h-[270px]"
         />
       </div>
     </div>
