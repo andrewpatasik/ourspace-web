@@ -1,9 +1,18 @@
+import { useRef } from "react";
 import Image from "../components/Image";
+import { useBackgroundColor } from "../hooks/useBackgroundColor";
+import useObserver from "../hooks/useObserver";
 
 const Closing = () => {
+  const { setColor } = useBackgroundColor();
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  useObserver(titleRef, () => {
+    if (setColor) setColor("bg-closing-background");
+  });
+
   return (
-    <div className="relative -mx-8 px-8 pt-[100px] bg-closing-background flex flex-col justify-center min-h-screen">
-      <div className="flex flex-col space-y-3">
+    <div className="relative -mx-8 px-8 pt-[100px] flex flex-col justify-center min-h-screen">
+      <div ref={titleRef} className="flex flex-col space-y-3">
         <p className="text-closing-paragraph font-light">
           And that’s it! from my deepest heart I’d like to say:
         </p>

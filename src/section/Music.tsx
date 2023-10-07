@@ -1,9 +1,18 @@
+import { useRef } from "react";
 import Image from "../components/Image";
+import { useBackgroundColor } from "../hooks/useBackgroundColor";
+import useObserver from "../hooks/useObserver";
 
 const Music = () => {
+  const { setColor } = useBackgroundColor();
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  useObserver(titleRef, () => {
+    if (setColor) setColor("bg-music-background");
+  });
+
   return (
-    <div className="-mx-8 px-8 py-16 bg-music-background flex space-x-4 min-h-screen">
-      <div className="w-full flex flex-col space-y-3 z-10">
+    <div className="-mx-8 px-8 py-16 flex space-x-4 min-h-screen">
+      <div ref={titleRef} className="w-full flex flex-col space-y-3 z-10">
         <iframe
           className="w-full h-full "
           src="https://open.spotify.com/embed/playlist/4ryYzKQi6IlIkrk1EezPwP?utm_source=generator&theme=0"

@@ -1,9 +1,18 @@
+import { useRef } from "react";
 import Image from "../components/Image";
+import { useBackgroundColor } from "../hooks/useBackgroundColor";
+import useObserver from "../hooks/useObserver";
 
 const Gallery = () => {
+  const { setColor } = useBackgroundColor();
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  useObserver(titleRef, () => {
+    if (setColor) setColor("bg-stuff-background");
+  });
+
   return (
-    <div className="-mx-8 px-8 py-[100px] bg-stuff-background flex space-x-12">
-      <div className="w-2/4 flex flex-col space-y-3">
+    <div className="-mx-8 px-8 py-[100px] flex space-x-12">
+      <div ref={titleRef} className="w-2/4 flex flex-col space-y-3">
         <h2 className="text-history-headline tracking-tight text-4xl font-bold">
           I collect ur amazing drawing 🎨
         </h2>

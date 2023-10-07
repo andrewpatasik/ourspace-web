@@ -1,9 +1,12 @@
+import { useRef } from "react";
 import ChevronRightIcon from "../assets/icons/ChevroRightIcon";
 import ChevronLeftIcon from "../assets/icons/ChevronLeftIcon";
 import Button from "../components/Button";
 import ChatBubble from "../components/ChatBubble";
 import Image from "../components/Image";
 import { ButtonClickProps } from "./section";
+import useObserver from "../hooks/useObserver";
+import { useBackgroundColor } from "../hooks/useBackgroundColor";
 
 const chatRecord = [
   {
@@ -17,15 +20,20 @@ const chatRecord = [
   },
 ];
 
-const handleButtonClick:ButtonClickProps = (e) => {
-  console.log(e.currentTarget.name)
-}
-
+const handleButtonClick: ButtonClickProps = (e) => {
+  console.log(e.currentTarget.name);
+};
 
 const History = () => {
+  const {setColor} = useBackgroundColor();
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  useObserver(titleRef, () => {
+    if (setColor) setColor("bg-history-background")
+  });
+
   return (
-    <div className="-mx-8 px-8 pt-[100px] bg-history-background flex min-h-screen">
-      <div className="w-3/5 flex flex-col space-y-3">
+    <div className="-mx-8 px-8 pt-[100px] flex min-h-screen">
+      <div ref={titleRef} className="w-3/5 flex flex-col space-y-3">
         <h2 className="text-history-headline text-4xl font-bold">
           👫Our History
         </h2>
@@ -37,10 +45,18 @@ const History = () => {
           videos. We share memories, emotions and dreams.
         </p>
         <div className="flex space-x-4">
-          <Button name="left" onClickEvt={handleButtonClick} className="p-4 border rounded-full transition active:bg-white">
+          <Button
+            name="left"
+            onClickEvt={handleButtonClick}
+            className="p-4 border rounded-full transition active:bg-white"
+          >
             <ChevronLeftIcon />
           </Button>
-          <Button name="right" onClickEvt={handleButtonClick} className="p-4 border rounded-full transition active:bg-white">
+          <Button
+            name="right"
+            onClickEvt={handleButtonClick}
+            className="p-4 border rounded-full transition active:bg-white"
+          >
             <ChevronRightIcon />
           </Button>
         </div>

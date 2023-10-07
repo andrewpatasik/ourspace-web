@@ -7,7 +7,7 @@ const handleButtonClick: ButtonClickProps = (e) => {
 
 const Timer = () => {
   return (
-    <div className="-mx-8 px-8 bg-history-background flex flex-col items-center justify-center min-h-screen">
+    <div className="-mx-8 px-8 flex flex-col items-center justify-center min-h-screen">
       <p className="text-2xl font-medium mb-8">
         we’ve been spent time together for...
       </p>

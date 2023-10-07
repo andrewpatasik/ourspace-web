@@ -1,11 +1,14 @@
 import { FC, ReactNode } from "react";
+import { useBackgroundColor } from "./hooks/useBackgroundColor";
 
 interface LayoutProps {
   children?: ReactNode;
 }
 
 const Layout: FC<LayoutProps> = ({ children }: LayoutProps) => {
-  return <div className="relative flex flex-col min-h-screen px-4 sm:px-8">{children}</div>;
+  const { color } = useBackgroundColor();
+
+  return <main id="layout" className={`${color} transition ease-in-out relative flex flex-col min-h-screen px-4 sm:px-8`}>{children}</main>;
 };
 
 export default Layout;

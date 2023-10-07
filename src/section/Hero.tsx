@@ -1,9 +1,20 @@
+import { useRef } from "react";
 import Image from "../components/Image";
+import { useBackgroundColor } from "../hooks/useBackgroundColor";
+import useObserver from "../hooks/useObserver";
 
 const Hero = () => {
+  const { setColor } = useBackgroundColor();
+  const titleRef = useRef<HTMLDivElement | null>(null);
+  useObserver(titleRef, () => {
+    if (setColor) setColor("bg-hero-background");
+
+    console.log("work");
+  });
+
   return (
-    <div className="relative -mx-4 sm:-mx-8 px-4 sm:px-8 bg-hero-background h-screen flex flex-col">
-      <header className="w-full sm:w-9/12 pb-6 flex-1 mx-auto flex flex-col items-center justify-end sm:text-center space-y-4 z-10">
+    <div className="relative -mx-4 sm:-mx-8 px-4 sm:px-8 h-screen flex flex-col">
+      <header ref={titleRef} className="w-full sm:w-9/12 pb-6 flex-1 mx-auto flex flex-col items-center justify-end sm:text-center space-y-4 z-10">
         <h1 className="text-5xl sm:text-7xl xl:text-9xl text-hero-headline tracking-thighter leading-tight sm:leading-none font-black">
           Hey, U Turned 23 Today 🎉
         </h1>

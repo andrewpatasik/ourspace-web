@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Layout from "./Layout";
 import Navbar from "./components/Navbar";
 import { Closing, Gallery, Hero, History, Music, Timer } from "./section";
+import { BackgroundColorProvider } from "./hooks/useBackgroundColor";
 
 const App = () => {
   return (
@@ -11,15 +12,18 @@ const App = () => {
         <title>𝓯𝓸𝓻 𝓰𝓻𝓮𝓼</title>
       </Helmet>
 
+    <BackgroundColorProvider>
       <Layout>
         <Navbar />
         <Hero />
-        <History/>
+        <History />
         <Timer />
         <Gallery />
         <Music />
         <Closing />
       </Layout>
+
+    </BackgroundColorProvider>
     </>
   );
 };
