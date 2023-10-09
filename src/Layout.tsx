@@ -8,7 +8,7 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }: LayoutProps) => {
   const { color } = useBackgroundColor();
 
-  return <main id="layout" className={`${color} transition ease-in-out relative flex flex-col min-h-screen px-4 sm:px-8`}>{children}</main>;
+  return <main className={`${color} transition-colors ease-in-out relative flex flex-col min-h-screen px-4 sm:px-8`}>{children}</main>;
 };
 
 export default Layout;

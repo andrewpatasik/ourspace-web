@@ -1,6 +1,7 @@
-import { FC } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
+import { FC, useRef } from "react";
 
-interface ImagePros {
+interface ImageProps {
   src: string;
   alt: string;
   size: string;
@@ -12,13 +13,48 @@ interface rectSizeProps {
   [key: string]: [number | string, number | string];
 }
 
-const Image: FC<ImagePros> = ({
+const animateObject = {
+  initial: 0,
+  smStart: 0.45,
+  smEnd: 0.5,
+  mdStart: 0.45,
+  mdEnd: 0.5,
+  lgStart: 0.25,
+  lgEnd: 0.35,
+};
+
+const Image: FC<ImageProps> = ({
   src,
   alt,
   size,
   className,
   loading = "eager",
-}: ImagePros) => {
+}: ImageProps) => {
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start start", "end start"],
+  });
+
+  const animateSize: any = {
+    sm: useTransform(
+      scrollYProgress,
+      [animateObject.smStart, animateObject.smEnd],
+      [1, 0]
+    ),
+    md: useTransform(
+      scrollYProgress,
+      [animateObject.mdStart, animateObject.mdEnd],
+      [1, 0]
+    ),
+    lg: useTransform(
+      scrollYProgress,
+      [animateObject.lgStart, animateObject.lgEnd],
+      [1, 0]
+    ),
+  };
+
   const rectSize: rectSizeProps = {
     sm: [130, "auto"],
     md: [500, "auto"],
@@ -26,7 +62,9 @@ const Image: FC<ImagePros> = ({
   };
 
   return (
-    <img
+    <motion.img
+      ref={imageRef}
+      style={{ opacity: animateSize[size] }}
       src={src}
       alt={alt}
       width={rectSize[size][0]}

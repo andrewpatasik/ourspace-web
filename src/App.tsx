@@ -16,11 +16,11 @@ const App = () => {
       <Layout>
         <Navbar />
         <Hero />
-        <History />
-        <Timer />
-        <Gallery />
-        <Music />
-        <Closing />
+        {/* <History /> */}
+        {/* <Timer /> */}
+        {/* <Gallery /> */}
+        {/* <Music /> */}
+        {/* <Closing /> */}
       </Layout>
 
     </BackgroundColorProvider>
