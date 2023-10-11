@@ -32,7 +32,7 @@ const Timer = () => {
     animate(count, dayRelativeTime, { duration: 1.5, delay: 0.5, velocity: 1 });
   });
 
-  const handleButtonClick: ButtonClickProps = (e) => {};
+  const handleButtonClick: ButtonClickProps = () => {};
 
   return (
     <div ref={targetRef} className="relative h-[250vh]">

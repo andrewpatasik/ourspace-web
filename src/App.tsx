@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import Layout from "./Layout";
 import Navbar from "./components/Navbar";
-import { Closing, Gallery, Hero, History, Music, Timer } from "./section";
+import { Hero, History, Timer } from "./section";
 import { BackgroundColorProvider } from "./hooks/useBackgroundColor";
 
 const App = () => {
