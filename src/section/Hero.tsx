@@ -1,33 +1,40 @@
 import { useRef } from "react";
 import Image from "../components/Image";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { useBackgroundColor } from "../hooks/useBackgroundColor";
+import useObserver from "../hooks/useObserver";
 
 const Hero = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
+  const observerRef = useRef<HTMLDivElement | null>(null);
+
+  const {setColor} = useBackgroundColor();
+  useObserver(observerRef, () => {
+    if (setColor) setColor("bg-hero-background")
+  })
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0.9, 1], [1, 0]);
-  const headlineTranslateY = useTransform(scrollYProgress, [0.85, 0.95], ["0rem", "-1rem"]);
-  const paragraphTranslateY = useTransform(scrollYProgress, [0.95, 1], ["0rem", "-1rem"]);
+  const opacity = useTransform(scrollYProgress, [0.7, 0.75], [1, 0]);
+  const headlineTranslateY = useTransform(scrollYProgress, [0.7, 0.75], ["0rem", "-1rem"]);
+  const paragraphTranslateY = useTransform(scrollYProgress, [0.7, 0.75], ["0rem", "-1rem"]);
 
   return (
-    <section className="relative h-[200vh]">
-      <div className="fixed -mx-4 sm:-mx-8 px-4 sm:px-8 h-[100vh] flex flex-col">
+    <section ref={targetRef} className="relative h-[300vh]">
+      <div ref={observerRef} aria-hidden></div>
+      <div className="fixed top-0 -mx-4 sm:-mx-8 px-4 sm:px-8 h-[100vh] flex flex-col">
         <header className="w-full sm:w-9/12 pb-6 flex-1 mx-auto flex flex-col items-center justify-end sm:text-center space-y-4 z-10">
           <motion.h1
-            ref={targetRef}
             style={{ opacity, y: headlineTranslateY }}
             className="text-5xl sm:text-7xl xl:text-9xl text-hero-headline tracking-thighter leading-tight sm:leading-none font-black"
           >
             Hey, U Turned 23 Today 🎉
           </motion.h1>
           <motion.p
-            ref={targetRef}
-            style={{ opacity,  y: headlineTranslateY}}
+            style={{ opacity, y: headlineTranslateY}}
             className="w-full sm:w-11/12 xl:w-8/12 text-hero-subheadline text-xl sm:text-xl tracking-tight leading-relaxed sm:leading-normal xl:leading-none"
           >
             I made this as a rectrospective of our relationship in hope that we
@@ -82,7 +89,6 @@ const Hero = () => {
 
         <div className="left-0 z-10">
           <motion.p
-            ref={targetRef}
             style={{ opacity, y: paragraphTranslateY }}
             className="text-xl sm:text-2xl text-hero-paragraph font-semibold"
           >

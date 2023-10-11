@@ -13,10 +13,16 @@ const ChatBubble: FC<ChatBubbleProps> = ({
 }: ChatBubbleProps) => {
   return (
     <div
-      className={`w-80 flex flex-col space-y-1 bg-white px-[12px] py-[16px] rounded-lg shadow-chatbubble ${className}`}
+      className={`w-fit max-w-[20rem] flex flex-col space-y-1 bg-white px-[12px] py-[16px] rounded-lg shadow-chatbubble ${className}`}
     >
-      <p className={`text-xs font-semibold text-history-headline ${className}`}>{name}</p>
-      <p className={`font-light tracking-tight text-history-subheadline leading-snug`}>{message}</p>
+      <p className={`text-xs font-semibold text-history-headline ${className}`}>
+        {name}
+      </p>
+      <p
+        className={`font-light tracking-tight text-history-subheadline leading-snug`}
+      >
+        {message}
+      </p>
     </div>
   );
 };

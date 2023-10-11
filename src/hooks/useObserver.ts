@@ -7,7 +7,7 @@ const useObserver = (
   useEffect(() => {
     const observerOpt: IntersectionObserverInit = {
       root: null,
-      rootMargin: "0px",
+      rootMargin: '100% 0px 0px 0px',
       threshold: 0.5,
     };
 

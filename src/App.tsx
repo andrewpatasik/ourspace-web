@@ -16,8 +16,8 @@ const App = () => {
       <Layout>
         <Navbar />
         <Hero />
-        {/* <History /> */}
-        {/* <Timer /> */}
+        <History />
+        <Timer />
         {/* <Gallery /> */}
         {/* <Music /> */}
         {/* <Closing /> */}
