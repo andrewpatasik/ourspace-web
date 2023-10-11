@@ -5,9 +5,10 @@ import {
   motion,
   useMotionValue,
 } from "framer-motion";
+import ReactConfetti from "react-confetti";
 import Button from "../components/Button";
 import { ButtonClickProps } from "./section";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import moment from "moment";
 import useObserver from "../hooks/useObserver";
 
@@ -16,6 +17,7 @@ const currentTime = moment(new Date());
 const dayRelativeTime = currentTime.diff(startTime, "days");
 
 const Timer = () => {
+  const [isConfettiOn, setIsConfettiOn] = useState<boolean>(false);
   const targetRef = useRef<HTMLDivElement | null>(null);
   const countRef = useRef<HTMLDivElement | null>(null);
 
@@ -32,7 +34,25 @@ const Timer = () => {
     animate(count, dayRelativeTime, { duration: 1.5, delay: 0.5, velocity: 1 });
   });
 
-  const handleButtonClick: ButtonClickProps = () => {};
+  useEffect(() => {
+    let confettiTimeout: ReturnType<typeof setTimeout>;
+
+    if (isConfettiOn) {
+      confettiTimeout = setTimeout(() => {
+        setIsConfettiOn(false);
+      }, 3000);
+    }
+
+    return () => {
+      if (isConfettiOn) {
+        clearTimeout(confettiTimeout);
+      }
+    };
+  }, [isConfettiOn]);
+
+  const handleButtonClick: ButtonClickProps = () => {
+    setIsConfettiOn(true);
+  };
 
   return (
     <div ref={targetRef} className="relative h-[250vh]">
@@ -40,6 +60,7 @@ const Timer = () => {
         style={{ opacity }}
         className="sticky top-0 h-[100vh] -mx-8 px-8 flex flex-col items-center justify-center"
       >
+        <ReactConfetti numberOfPieces={100} recycle={isConfettiOn} />
         <p className="text-2xl font-medium mb-8 text-center">
           we’ve been spent time together for...
         </p>
