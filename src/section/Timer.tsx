@@ -17,6 +17,15 @@ const currentTime = moment(new Date());
 const dayRelativeTime = currentTime.diff(startTime, "days");
 
 const Timer = () => {
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [windowSize, setWindowSize] = useState<{
+    width: number | undefined;
+    height: number | undefined;
+  }>({
+    width: undefined,
+    height: undefined,
+  });
+
   const [isConfettiOn, setIsConfettiOn] = useState<boolean>(false);
   const targetRef = useRef<HTMLDivElement | null>(null);
   const countRef = useRef<HTMLDivElement | null>(null);
@@ -25,7 +34,11 @@ const Timer = () => {
     target: targetRef,
     offset: ["start end", "end start"],
   });
-  const opacity = useTransform(scrollYProgress, [0.3, 0.35], [0, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.35, 0.65, 0.75],
+    [0, 1, 1, 0]
+  );
   const [scope, animate] = useAnimate();
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
@@ -33,6 +46,16 @@ const Timer = () => {
   useObserver(countRef, () => {
     animate(count, dayRelativeTime, { duration: 1.5, delay: 0.5, velocity: 1 });
   });
+
+  useEffect(() => {
+    window.onresize = () => handleWindowResize();
+  }, [windowSize]);
+
+  useEffect(() => {
+    setLoaded(true);
+
+    console.log(loaded)
+  }, []);
 
   useEffect(() => {
     let confettiTimeout: ReturnType<typeof setTimeout>;
@@ -50,17 +73,30 @@ const Timer = () => {
     };
   }, [isConfettiOn]);
 
+  const handleWindowResize = () => {
+    setWindowSize({
+      width: window.innerWidth - 24,
+      height: window.innerHeight,
+    });
+  };
+
   const handleButtonClick: ButtonClickProps = () => {
     setIsConfettiOn(true);
   };
 
   return (
-    <div ref={targetRef} className="relative h-[250vh]">
+    <div ref={targetRef} className="relative h-[300vh]">
       <motion.div
         style={{ opacity }}
-        className="sticky top-0 h-[100vh] -mx-8 px-8 flex flex-col items-center justify-center"
+        className="sticky top-0 left-0 h-[100vh] -mx-8 px-8 flex flex-col items-center justify-center"
       >
-        <ReactConfetti numberOfPieces={100} recycle={isConfettiOn} />
+        {loaded && (
+          <ReactConfetti
+            width={windowSize.width}
+            numberOfPieces={150}
+            recycle={isConfettiOn}
+          />
+        )}
         <p className="text-2xl font-medium mb-8 text-center">
           we’ve been spent time together for...
         </p>
@@ -76,14 +112,14 @@ const Timer = () => {
           <Button
             name="convetti-left"
             onClickEvt={handleButtonClick}
-            className="absolute text-9xl top-10"
+            className="absolute text-9xl top-10 active:opacity-50 active:-translate-y-5 transition"
           >
             <span>🎉</span>
           </Button>
           <Button
             name="convetti-right"
             onClickEvt={handleButtonClick}
-            className="absolute text-9xl flip right-0 top-10"
+            className="absolute text-9xl flip right-0 top-10 active:opacity-50 active:-translate-y-5 transition"
           >
             <span>🎉</span>
           </Button>
