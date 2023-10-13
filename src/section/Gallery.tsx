@@ -6,7 +6,7 @@ import useObserver from "../hooks/useObserver";
 
 const Gallery = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
-  const titleRef = useRef<HTMLDivElement | null>(null);
+  const observerRef = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -17,27 +17,28 @@ const Gallery = () => {
     [0.3, 0.35, 0.75, 0.8],
     [0, 1, 1, 0]
   );
-  const lgImageOpacity = useTransform(
+  const lgImageOpacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
+
+  const lgImageYTranslate = useTransform(
     scrollYProgress,
-    [0.3, 0.4],
-    [0, 1]
+    [0.35, 0.45, 0.8],
+    [10, 0, -20]
   );
 
-  const lgImageYTranslate = useTransform(scrollYProgress, [0.35, 0.45, 0.8], [10, 0, -20]);
-
   const { setColor } = useBackgroundColor();
-  useObserver(titleRef, () => {
+  useObserver(observerRef, () => {
     if (setColor) setColor("bg-stuff-background");
   });
 
   return (
-    <motion.section
-      ref={targetRef}
-      style={{ opacity }}
-      className="relative h-[450vh]"
-    >
-      <div className="sticky top-0 h-[100vh] -mx-8 px-8 py-[100px] flex space-x-12">
-        <div ref={titleRef} className="w-2/4 flex flex-col space-y-3">
+    <section ref={targetRef} className="relative h-[450vh]">
+      <motion.div
+        style={{ opacity }}
+        className="sticky top-0 left-0 pt-[100px] -mx-8 px-8 flex space-x-12"
+      >
+        <div className="w-2/4 flex flex-col space-y-3">
+          <div ref={observerRef} aria-hidden>
+          </div>
           <h2 className="text-history-headline tracking-tight text-4xl font-bold">
             I collect ur amazing drawing 🎨
           </h2>
@@ -71,13 +72,13 @@ const Gallery = () => {
               },
               {
                 stylePropName: "y",
-                styleMotionValue: lgImageYTranslate
-              }
+                styleMotionValue: lgImageYTranslate,
+              },
             ]}
           />
         </div>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };
 
