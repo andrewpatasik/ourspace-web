@@ -55,8 +55,16 @@ const History = () => {
   });
 
   const controls = useAnimation();
-  const titleOpacity = useTransform(scrollYProgress, [0.25, 0.3, 0.65, 0.75], [0, 1, 1, 0]);
-  const chatOpacity = useTransform(scrollYProgress, [0.3, 0.4, 0.65, 0.75], [0, 1, 1, 0]);
+  const titleOpacity = useTransform(
+    scrollYProgress,
+    [0.25, 0.3, 0.5, 0.65],
+    [0, 1, 1, 0]
+  );
+  const chatOpacity = useTransform(
+    scrollYProgress,
+    [0.4, 0.43, 0.5, 0.65],
+    [0, 1, 1, 0]
+  );
 
   const { setColor } = useBackgroundColor();
   useObserver(observerRef, () => {
@@ -80,7 +88,7 @@ const History = () => {
   }, [currentPage]);
 
   return (
-    <div ref={targetRef} className="relative h-[250vh]">
+    <div ref={targetRef} className="relative h-[200vh]">
       <div ref={observerRef} aria-hidden></div>
       <div className="sticky top-0 left-0 -mx-8 px-8 pt-[100px] flex h-[100vh]">
         <div className="w-3/5 flex flex-col space-y-3">

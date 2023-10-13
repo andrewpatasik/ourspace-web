@@ -49,12 +49,11 @@ const Timer = () => {
 
   useEffect(() => {
     window.onresize = () => handleWindowResize();
-  }, [windowSize]);
+  }, [windowSize, loaded]);
 
   useEffect(() => {
     setLoaded(true);
 
-    console.log(loaded)
   }, []);
 
   useEffect(() => {
@@ -85,7 +84,7 @@ const Timer = () => {
   };
 
   return (
-    <div ref={targetRef} className="relative h-[300vh]">
+    <div ref={targetRef} className="relative h-[250vh]">
       <motion.div
         style={{ opacity }}
         className="sticky top-0 left-0 h-[100vh] -mx-8 px-8 flex flex-col items-center justify-center"

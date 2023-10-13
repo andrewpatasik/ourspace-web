@@ -4,14 +4,28 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
 import useObserver from "../hooks/useObserver";
 
+type AnimateObjectType = {
+  [key: string]: number;
+};
+
+const animateObject: AnimateObjectType = {
+  initial: 0,
+  smStart: 0.45,
+  smEnd: 0.5,
+  mdStart: 0.45,
+  mdEnd: 0.5,
+  lgStart: 0.25,
+  lgEnd: 0.35,
+};
+
 const Hero = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<HTMLDivElement | null>(null);
 
-  const {setColor} = useBackgroundColor();
+  const { setColor } = useBackgroundColor();
   useObserver(observerRef, () => {
-    if (setColor) setColor("bg-hero-background")
-  })
+    if (setColor) setColor("bg-hero-background");
+  });
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -19,8 +33,27 @@ const Hero = () => {
   });
 
   const opacity = useTransform(scrollYProgress, [0.7, 0.75], [1, 0]);
-  const headlineTranslateY = useTransform(scrollYProgress, [0.7, 0.75], ["0rem", "-1rem"]);
-  const paragraphTranslateY = useTransform(scrollYProgress, [0.7, 0.75], ["0rem", "-1rem"]);
+  const smImageOpacity = useTransform(
+    scrollYProgress,
+    [animateObject.smStart, animateObject.smEnd],
+    [1, 0]
+  );
+  const lgImageOpacity = useTransform(
+    scrollYProgress,
+    [animateObject.lgStart, animateObject.lgEnd],
+    [1, 0]
+  );
+
+  const headlineTranslateY = useTransform(
+    scrollYProgress,
+    [0.7, 0.75],
+    ["0rem", "-1rem"]
+  );
+  const paragraphTranslateY = useTransform(
+    scrollYProgress,
+    [0.7, 0.75],
+    ["0rem", "-1rem"]
+  );
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
@@ -34,7 +67,7 @@ const Hero = () => {
             Hey, U Turned 23 Today 🎉
           </motion.h1>
           <motion.p
-            style={{ opacity, y: headlineTranslateY}}
+            style={{ opacity, y: headlineTranslateY }}
             className="w-full sm:w-11/12 xl:w-8/12 text-hero-subheadline text-xl sm:text-xl tracking-tight leading-relaxed sm:leading-normal xl:leading-none"
           >
             I made this as a rectrospective of our relationship in hope that we
@@ -47,19 +80,37 @@ const Hero = () => {
           src="images/hero/hero-1.webp"
           alt="hero-1"
           size="lg"
-          className="-bottom-12 sm:bottom-0 -left-14 sm:h-[200px] xl:h-[260px]"
+          className="-bottom-12 sm:bottom-0 -left-4 sm:h-[200px] xl:h-[260px]"
+          style={[
+            {
+              stylePropName: "opacity",
+              styleMotionValue: lgImageOpacity,
+            },
+          ]}
         />
         <Image
           src="images/hero/hero-2.webp"
           alt="hero-2"
           size="lg"
           className="top-1 right-1 sm:inset-y-24 sm:inset-x-[8.5rem] sm:h-[240px] xl:h-[270px]"
+          style={[
+            {
+              stylePropName: "opacity",
+              styleMotionValue: lgImageOpacity,
+            },
+          ]}
         />
         <Image
           src="images/hero/gif-2.gif"
           alt="gif-2"
           size="sm"
           className="hidden sm:block inset-y-3/4 inset-x-1/4 h-[100px]"
+          style={[
+            {
+              stylePropName: "opacity",
+              styleMotionValue: smImageOpacity,
+            },
+          ]}
         />
 
         <Image
@@ -67,24 +118,48 @@ const Hero = () => {
           alt="gif-1"
           size="lg"
           className="top-10 sm:inset-y-1/5 left-1 sm:inset-x-1/2 h-[220px]"
+          style={[
+            {
+              stylePropName: "opacity",
+              styleMotionValue: lgImageOpacity,
+            },
+          ]}
         />
         <Image
           src="images/hero/hero-3.webp"
           alt="hero-3"
           size="sm"
           className="bottom-10 inset-x-2/3 h-[120px]"
+          style={[
+            {
+              stylePropName: "opacity",
+              styleMotionValue: smImageOpacity,
+            },
+          ]}
         />
         <Image
           src="images/hero/hero-4.webp"
           alt="hero-4"
           size="lg"
           className="top-20 right-14 h-[200px] z-20"
+          style={[
+            {
+              stylePropName: "opacity",
+              styleMotionValue: lgImageOpacity,
+            },
+          ]}
         />
         <Image
           src="images/hero/hero-5.webp"
           alt="hero-5"
           size="lg"
           className="bottom-0 right-0 h-[200px]"
+          style={[
+            {
+              stylePropName: "opacity",
+              styleMotionValue: lgImageOpacity,
+            },
+          ]}
         />
 
         <div className="left-0 z-10">
