@@ -8,7 +8,7 @@ const useObserver = (
     const observerOpt: IntersectionObserverInit = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5,
+      threshold: 0.1,
     };
 
     let handleObserver: IntersectionObserverCallback = (entries) => {

@@ -11,9 +11,9 @@ type AnimateObjectType = {
 const animateObject: AnimateObjectType = {
   initial: 0,
   smStart: 0.45,
-  smEnd: 0.5,
-  mdStart: 0.45,
-  mdEnd: 0.5,
+  smEnd: 0.55,
+  mdStart: 0.35,
+  mdEnd: 0.45,
   lgStart: 0.25,
   lgEnd: 0.35,
 };
@@ -23,7 +23,7 @@ const Hero = () => {
   const observerRef = useRef<HTMLDivElement | null>(null);
 
   const { setColor } = useBackgroundColor();
-  useObserver(observerRef, () => {
+  useObserver(targetRef, () => {
     if (setColor) setColor("bg-hero-background");
   });
 
@@ -36,6 +36,11 @@ const Hero = () => {
   const smImageOpacity = useTransform(
     scrollYProgress,
     [animateObject.smStart, animateObject.smEnd],
+    [1, 0]
+  );
+  const mdImageOpacity = useTransform(
+    scrollYProgress,
+    [animateObject.mdStart, animateObject.mdEnd],
     [1, 0]
   );
   const lgImageOpacity = useTransform(
@@ -70,9 +75,9 @@ const Hero = () => {
             style={{ opacity, y: headlineTranslateY }}
             className="w-full sm:w-11/12 xl:w-8/12 text-hero-subheadline text-xl sm:text-xl tracking-tight leading-relaxed sm:leading-normal xl:leading-none"
           >
-            I made this as a rectrospective of our relationship in hope that we
-            can have a little space in the internet that stored everything we
-            love and have been shared together, I hope you like it 😊
+            Congrats for made it to 23! this is a little space in the digital
+            ocean called "The Internet" that i created for you to celebrate your
+            special day, I hope you like it 😊
           </motion.p>
         </header>
 
@@ -96,7 +101,7 @@ const Hero = () => {
           style={[
             {
               stylePropName: "opacity",
-              styleMotionValue: lgImageOpacity,
+              styleMotionValue: mdImageOpacity,
             },
           ]}
         />
@@ -145,7 +150,7 @@ const Hero = () => {
           style={[
             {
               stylePropName: "opacity",
-              styleMotionValue: lgImageOpacity,
+              styleMotionValue: mdImageOpacity,
             },
           ]}
         />
@@ -167,9 +172,8 @@ const Hero = () => {
             style={{ opacity, y: paragraphTranslateY }}
             className="text-xl sm:text-2xl text-hero-paragraph font-semibold"
           >
-            So Where It
-            <br />
-            All Started? 👀
+            
+            Start here 👀
           </motion.p>
         </div>
       </div>

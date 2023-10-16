@@ -9,7 +9,7 @@ const Music = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
 
   const { setColor } = useBackgroundColor();
-  useObserver(observerRef, () => {
+  useObserver(targetRef, () => {
     if (setColor) setColor("bg-music-background");
   });
 

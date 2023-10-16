@@ -67,7 +67,7 @@ const History = () => {
   );
 
   const { setColor } = useBackgroundColor();
-  useObserver(observerRef, () => {
+  useObserver(targetRef, () => {
     if (setColor) setColor("bg-history-background");
   });
 
@@ -91,12 +91,12 @@ const History = () => {
     <div ref={targetRef} className="relative h-[200vh]">
       <div ref={observerRef} aria-hidden></div>
       <div className="sticky top-0 left-0 -mx-8 px-8 pt-[100px] flex h-[100vh]">
-        <div className="w-3/5 flex flex-col space-y-3">
+        <div className="w-3/4 flex flex-col space-y-3">
           <motion.h2
             style={{ opacity: titleOpacity }}
             className="text-history-headline text-4xl font-bold"
           >
-            👫Our History
+            👫The Story So Far...
           </motion.h2>
           <motion.p
             style={{ opacity: titleOpacity }}

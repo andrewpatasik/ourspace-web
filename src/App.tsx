@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import Layout from "./Layout";
 import Navbar from "./components/Navbar";
-import { Gallery, Hero, History, Music, Timer } from "./section";
+import { Closing, Gallery, Hero, History, Music, Timer } from "./section";
 import { BackgroundColorProvider } from "./hooks/useBackgroundColor";
 
 const App = () => {
@@ -20,9 +20,8 @@ const App = () => {
         <Timer />
         <Gallery />
         <Music />
-        {/* <Closing /> */}
+        <Closing />
       </Layout>
-
     </BackgroundColorProvider>
     </>
   );

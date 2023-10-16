@@ -36,7 +36,7 @@ const Timer = () => {
   });
   const opacity = useTransform(
     scrollYProgress,
-    [0.3, 0.35, 0.65, 0.75],
+    [0.3, 0.35, 0.6, 0.7],
     [0, 1, 1, 0]
   );
   const [scope, animate] = useAnimate();

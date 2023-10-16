@@ -26,7 +26,7 @@ const Gallery = () => {
   );
 
   const { setColor } = useBackgroundColor();
-  useObserver(observerRef, () => {
+  useObserver(targetRef, () => {
     if (setColor) setColor("bg-stuff-background");
   });
 
@@ -37,8 +37,7 @@ const Gallery = () => {
         className="sticky top-0 left-0 pt-[100px] -mx-8 px-8 flex space-x-12"
       >
         <div className="w-2/4 flex flex-col space-y-3">
-          <div ref={observerRef} aria-hidden>
-          </div>
+          <div ref={observerRef} aria-hidden></div>
           <h2 className="text-history-headline tracking-tight text-4xl font-bold">
             I collect ur amazing drawing 🎨
           </h2>
@@ -49,15 +48,78 @@ const Gallery = () => {
           </p>
         </div>
         <div className="relative w-9/12 grid grid-cols-3 gap-3">
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
-          <div className="bg-gray-300 rounded-lg w-full z-10 h-32"></div>
+          <img
+            src="./public/images/drawing/gallery-1.webp"
+            alt="gallery-1"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-2.webp"
+            alt="gallery-2"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-3.webp"
+            alt="gallery-3"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-4.webp"
+            alt="gallery-4"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-5.webp"
+            alt="gallery-5"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-6.webp"
+            alt="gallery-6"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-7.webp"
+            alt="gallery-7"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-8.webp"
+            alt="gallery-8"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
+          <img
+            src="./public/images/drawing/gallery-9.webp"
+            alt="gallery-9"
+            className="w-full h-32 rounded-lg z-10 object-cover"
+            loading="lazy"
+            width={161}
+            height={128}
+          />
 
           <Image
             src="images/drawing/drawing-1.webp"
