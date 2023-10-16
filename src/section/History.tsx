@@ -92,7 +92,7 @@ const History = () => {
         </div>
         <motion.div
           style={{ opacity: chatOpacity }}
-          className="relative flex flex-col w-full mt-24 space-y-8"
+          className="relative flex flex-col w-full mt-32 space-y-8"
         >
           <AnimatePresence>
             <div className="w-11/12 mx-auto space-y-8 z-10">
@@ -109,7 +109,7 @@ const History = () => {
                       key={index}
                       name={sender}
                       message={message}
-                      className={(index + 1) % 2 == 0 ? "ml-auto" : ""}
+                      className={(index + 1) % 2 == 0 ? "ml-auto text-right" : ""}
                     />
                   </motion.div>
                 );
@@ -121,21 +121,21 @@ const History = () => {
             src="images/history/history-4.webp"
             alt="history-4"
             size="lg"
-            className="top-10 -left-20 h-[240px]"
+            className="top-0 -left-20 h-[240px]"
             loading="lazy"
           />
           <Image
             src="images/history/history-1.webp"
             alt="history-3"
             size="sm"
-            className="-top-24 inset-x-2/3 h-[100px]"
+            className="-top-32 inset-x-2/3 h-[100px]"
             loading="lazy"
           />
           <Image
             src="images/history/history-2.webp"
             alt="history-2"
             size="lg"
-            className="inset-y-1/3 -right-5 h-[240px]"
+            className="top-24 -right-5 h-[240px]"
             loading="lazy"
           />
         </motion.div>

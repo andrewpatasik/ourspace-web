@@ -49,7 +49,7 @@ const Gallery = () => {
         </div>
         <div className="relative w-9/12 grid grid-cols-3 gap-3">
           <img
-            src="./public/images/drawing/gallery-1.webp"
+            src="images/drawing/gallery-1.webp"
             alt="gallery-1"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -57,7 +57,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-2.webp"
+            src="images/drawing/gallery-2.webp"
             alt="gallery-2"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -65,7 +65,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-3.webp"
+            src="images/drawing/gallery-3.webp"
             alt="gallery-3"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -73,7 +73,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-4.webp"
+            src="images/drawing/gallery-4.webp"
             alt="gallery-4"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -81,7 +81,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-5.webp"
+            src="images/drawing/gallery-5.webp"
             alt="gallery-5"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -89,7 +89,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-6.webp"
+            src="images/drawing/gallery-6.webp"
             alt="gallery-6"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -97,7 +97,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-7.webp"
+            src="images/drawing/gallery-7.webp"
             alt="gallery-7"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -105,7 +105,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-8.webp"
+            src="images/drawing/gallery-8.webp"
             alt="gallery-8"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
@@ -113,7 +113,7 @@ const Gallery = () => {
             height={128}
           />
           <img
-            src="./public/images/drawing/gallery-9.webp"
+            src="images/drawing/gallery-9.webp"
             alt="gallery-9"
             className="w-full h-32 rounded-lg z-10 object-cover"
             loading="lazy"
