@@ -10,31 +10,12 @@ import ChatBubble from "../components/ChatBubble";
 import Image from "../components/Image";
 import useObserver from "../hooks/useObserver";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
-
-const chatRecord = [
-  {
-    name: "Gres",
-    message: "Cool! Do you have any interesting projects you're working on?",
-  },
-  {
-    name: "Andrew",
-    message:
-      "Yeah, I'm currently designing a logo for a new startup. It's challenging but fun!",
-  },
-  {
-    name: "Gres",
-    message: " I appreciate that! Let's stay connected. Have a great day!",
-  },
-  {
-    name: "Andrew",
-    message: "You too! Chat with you later! 👋",
-  },
-];
+import chatRec from '../data/chat.json';
 
 const History = () => {
   const [chatMessage, setChatMessage] = useState<
     {
-      name: string;
+      sender: string;
       message: string;
     }[]
   >([]);
@@ -43,7 +24,7 @@ const History = () => {
   const observerRef = useRef<HTMLDivElement | null>(null);
   const targetRef = useRef<HTMLDivElement | null>(null);
 
-  const totalItems = chatRecord.length;
+  const totalItems = chatRec.length;
   const itemsPerPage = 2;
   const totalPage = Math.ceil(totalItems / itemsPerPage);
   let startIndex = (currentPage - 1) * itemsPerPage;
@@ -73,12 +54,12 @@ const History = () => {
 
   useEffect(() => {
     controls.start({ opacity: 0, y: -10 }).then(() => {
-      setChatMessage(chatRecord.slice(startIndex, endIndex));
+      setChatMessage(chatRec.slice(startIndex, endIndex));
       controls.start({ opacity: 1, y: 0 });
     });
 
     const chatInterval = setInterval(() => {
-      if (currentPage < totalPage) setCurrentPage(currentPage + 1);
+      if (currentPage < totalPage) setCurrentPage(prev => prev + 1);
       else setCurrentPage(1);
     }, 5000);
 
@@ -115,7 +96,7 @@ const History = () => {
         >
           <AnimatePresence>
             <div className="w-11/12 mx-auto space-y-8 z-10">
-              {chatMessage.map(({ name, message }, index) => {
+              {chatMessage.map(({ sender, message }, index) => {
                 return (
                   <motion.div
                     key={index}
@@ -126,7 +107,7 @@ const History = () => {
                   >
                     <ChatBubble
                       key={index}
-                      name={name}
+                      name={sender}
                       message={message}
                       className={(index + 1) % 2 == 0 ? "ml-auto" : ""}
                     />
