@@ -38,12 +38,12 @@ const History = () => {
   const controls = useAnimation();
   const titleOpacity = useTransform(
     scrollYProgress,
-    [0.25, 0.3, 0.5, 0.65],
+    [0.25, 0.3, 0.65, 0.8],
     [0, 1, 1, 0]
   );
   const chatOpacity = useTransform(
     scrollYProgress,
-    [0.4, 0.43, 0.5, 0.65],
+    [0.4, 0.43, 0.65, 0.8],
     [0, 1, 1, 0]
   );
 
@@ -75,7 +75,7 @@ const History = () => {
   }, [currentPage, isVisible]);
 
   return (
-    <div ref={targetRef} className="relative h-[200vh]">
+    <div ref={targetRef} className="relative h-[400vh]">
       <div ref={observerRef} aria-hidden></div>
       <div className="sticky top-0 left-0 -mx-8 px-8 pt-[100px] flex h-[100vh]">
         <div className="w-3/4 flex flex-col space-y-3">

@@ -63,16 +63,17 @@ const Image: FC<ImageProps> = ({
     if (!loaded) {
       loadImage()
         .then((img) => {
+          imageRef.current?.classList.remove("blur");
+          imageRef.current?.classList.remove("grayscale");
+
+          imageRef.current?.classList.add("blur-none");
+          imageRef.current?.classList.add("grayscale-0");
           imageRef.current?.classList.add("transition");
-          imageRef.current?.classList.add("duration-300");
-          imageRef.current?.classList.add("delay-500");
           imageRef.current?.classList.add("ease-in-out");
-          imageRef.current?.classList.remove("blur-md");
 
           if (imageRef.current) imageRef.current.src = img;
         })
         .finally(() => {
-          imageRef.current?.classList.remove("delay-500");
           setLoaded(true);
         });
     }
@@ -98,7 +99,7 @@ const Image: FC<ImageProps> = ({
       alt={alt}
       width={rectSize[size][0]}
       height={rectSize[size][1]}
-      className={`absolute blur-md object-cover max-w-full bg-gray-100 rounded-xl ${className}`}
+      className={`absolute blur-md grayscale object-cover max-w-full bg-gray-100 rounded-xl ${className}`}
       loading={loading}
     />
   );
