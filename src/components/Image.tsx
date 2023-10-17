@@ -51,10 +51,10 @@ const Image: FC<ImageProps> = ({
   useEffect(() => {
     const loadImage = async () => {
       try {
-        let IMAGE_URL = `../assets/${src}`;
-        const image = await import(IMAGE_URL);
+        let IMAGE_URL = `/${src}`;
+        const image = IMAGE_URL;
 
-        return image.default;
+        return image;
       } catch (error) {
         return imagePlaceholder[size];
       }
@@ -63,16 +63,16 @@ const Image: FC<ImageProps> = ({
     if (!loaded) {
       loadImage()
         .then((img) => {
-          if (img) {
-            imageRef.current?.classList.add("transition");
-            imageRef.current?.classList.add("duration-300");
-            imageRef.current?.classList.add("ease-in-out");
+          imageRef.current?.classList.add("transition");
+          imageRef.current?.classList.add("duration-300");
+          imageRef.current?.classList.add("delay-500");
+          imageRef.current?.classList.add("ease-in-out");
+          imageRef.current?.classList.remove("blur-md");
 
-            if (imageRef.current) imageRef.current.src = img;
-          }
+          if (imageRef.current) imageRef.current.src = img;
         })
         .finally(() => {
-          imageRef.current?.classList.remove("blur-md");
+          imageRef.current?.classList.remove("delay-500");
           setLoaded(true);
         });
     }
