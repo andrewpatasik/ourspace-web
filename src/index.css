@@ -106,4 +106,5 @@
   .flip {
     transform: scaleX(theme("scale.-1")) !important;
   }
+
 }
