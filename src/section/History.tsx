@@ -10,7 +10,7 @@ import ChatBubble from "../components/ChatBubble";
 import Image from "../components/Image";
 import useObserver from "../hooks/useObserver";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
-import chatRec from '../data/chat.json';
+import chatRec from "../data/chat.json";
 
 const History = () => {
   const [chatMessage, setChatMessage] = useState<
@@ -48,7 +48,7 @@ const History = () => {
   );
 
   const { setColor } = useBackgroundColor();
-  useObserver(targetRef, () => {
+  const [isVisible] = useObserver(targetRef, () => {
     if (setColor) setColor("bg-history-background");
   });
 
@@ -58,15 +58,21 @@ const History = () => {
       controls.start({ opacity: 1, y: 0 });
     });
 
-    const chatInterval = setInterval(() => {
-      if (currentPage < totalPage) setCurrentPage(prev => prev + 1);
+    const chatInterval: ReturnType<typeof setInterval> = setInterval(() => {
+      if (currentPage < totalPage) setCurrentPage((prev) => prev + 1);
       else setCurrentPage(1);
     }, 5000);
+
+    if (!isVisible) {
+      controls.stop();
+      clearInterval(chatInterval);
+      setCurrentPage(1);
+    }
 
     return () => {
       clearInterval(chatInterval);
     };
-  }, [currentPage]);
+  }, [currentPage, isVisible]);
 
   return (
     <div ref={targetRef} className="relative h-[200vh]">
@@ -109,7 +115,9 @@ const History = () => {
                       key={index}
                       name={sender}
                       message={message}
-                      className={(index + 1) % 2 == 0 ? "ml-auto text-right" : ""}
+                      className={
+                        (index + 1) % 2 == 0 ? "ml-auto" : ""
+                      }
                     />
                   </motion.div>
                 );

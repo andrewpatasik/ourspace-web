@@ -1,20 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useObserver = (
   target: React.RefObject<HTMLDivElement>,
-  callback: any
+  callback?: any
 ) => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
   useEffect(() => {
     const observerOpt: IntersectionObserverInit = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: "0px",
       threshold: 0.1,
     };
 
     let handleObserver: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
-          callback();
+          setIsVisible(true);
+          callback && callback();
+        } else {
+          setIsVisible(false);
         }
       });
     };
@@ -27,6 +32,8 @@ const useObserver = (
       observer.disconnect();
     };
   }, []);
+
+  return [isVisible];
 };
 
 export default useObserver;

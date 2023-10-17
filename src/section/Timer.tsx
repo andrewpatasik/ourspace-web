@@ -43,30 +43,41 @@ const Timer = () => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
 
-  useObserver(countRef, () => {
-    animate(count, dayRelativeTime, { duration: 1.5, delay: 0.5, velocity: 1 });
-  });
+  const [isTimerVisible] = useObserver(countRef);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
   useEffect(() => {
     window.onresize = () => handleWindowResize();
   }, [windowSize, loaded]);
 
   useEffect(() => {
-    setLoaded(true);
-
-  }, []);
-
-  useEffect(() => {
-    let confettiTimeout: ReturnType<typeof setTimeout>;
-
-    if (isConfettiOn) {
-      confettiTimeout = setTimeout(() => {
-        setIsConfettiOn(false);
-      }, 3000);
+    if (isTimerVisible) {
+      animate(count, dayRelativeTime, {
+        duration: 1.5,
+        delay: 0.5,
+        velocity: 1,
+      }).then(() => setIsConfettiOn(true))
     }
 
+    if (!isTimerVisible) count.set(0);
+
     return () => {
-      if (isConfettiOn) {
+      if (isTimerVisible) {
+        count.clearListeners();
+      }
+    };
+  }, [isTimerVisible]);
+
+  useEffect(() => {
+    const confettiTimeout: ReturnType<typeof setTimeout> = setTimeout(() => {
+      setIsConfettiOn(false);
+    }, 3000);
+
+    return () => {
+      if (isConfettiOn || !isTimerVisible) {
         clearTimeout(confettiTimeout);
       }
     };
