@@ -72,11 +72,11 @@ const Music = () => {
             className="flex flex-col space-y-4"
           >
             <h2 className="text-music-headline text-4xl tracking-tight font-bold">
-              What we’ve listened together 📻
+              What we’ve listened together 
             </h2>
             <p className="text-music-paragraph font-light">
-              I curated a playlist back when u were in need for some nice
-              words, I hope that it can always be a reminder for you even the
+              I curated a playlist 📻 back when u were in need for some nice
+              words, I hope that it can always be a reminder for you that there is always something good even the
               weather seems gloom 💞
             </p>
           </motion.div>

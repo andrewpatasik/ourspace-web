@@ -30,7 +30,7 @@ const Closing = () => {
   );
 
   return (
-    <section ref={targetRef} className="relative vh-[200vh] -mx-8 px-8">
+    <section ref={targetRef} className="relative vh-[400vh] -mx-8 px-8">
       <motion.div style={{opacity}} className="sticky top-0 left-0 h-[100vh] flex flex-col justify-center">
         <div ref={titleRef} className="flex flex-col space-y-3">
           <p className="text-closing-paragraph font-light">

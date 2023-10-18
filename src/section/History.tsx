@@ -89,11 +89,11 @@ const History = () => {
             style={{ opacity: titleOpacity }}
             className="text-history-subheadline font-light"
           >
-            Do you remember the first time we talked? It’s been a while ago, but
+            Do you remember the first time we talked? It’s been a while ago for sure 😅, but
             since then we already share <span className="font-bold">30795</span>{" "}
             texts, <span className="font-bold">1533</span> funny selfie
             (including memes ofc 😆) and <span className="font-bold">217</span>{" "}
-            random videos. And then on April 30th 2023 we finally choose to be together.
+            random videos. And then, on April 30th 2023 we finally choose to be together.
           </motion.p>
         </div>
         <motion.div
