@@ -8,7 +8,6 @@ interface ImageProps {
   size: string;
   style?: StyleType[];
   className?: string;
-  loading?: "eager" | "lazy" | undefined;
 }
 
 interface rectSizeProps {
@@ -31,8 +30,8 @@ const rectSize: rectSizeProps = {
 };
 
 const imagePlaceholder: imagePlaceholderProps = {
-  sm: `https://placehold.co/${rectSize.sm[0]}`,
-  lg: `https://placehold.co/${rectSize.lg[0]}`,
+  sm: `https://placehold.co/${rectSize.sm[0]}/F1F5F9/F1F5F9`,
+  lg: `https://placehold.co/${rectSize.lg[0]}/F1F5F9/F1F5F9`,
 };
 
 const Image: FC<ImageProps> = ({
@@ -40,7 +39,6 @@ const Image: FC<ImageProps> = ({
   alt,
   size,
   className,
-  loading = "eager",
   style,
 }: ImageProps) => {
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -60,17 +58,9 @@ const Image: FC<ImageProps> = ({
       }
     };
 
-    if (!loaded) {
+    if (isImageVisible && !loaded) {
       loadImage()
         .then((img) => {
-          imageRef.current?.classList.remove("blur");
-          imageRef.current?.classList.remove("grayscale");
-
-          imageRef.current?.classList.add("blur-none");
-          imageRef.current?.classList.add("grayscale-0");
-          imageRef.current?.classList.add("transition");
-          imageRef.current?.classList.add("ease-in-out");
-
           if (imageRef.current) imageRef.current.src = img;
         })
         .finally(() => {
@@ -99,8 +89,7 @@ const Image: FC<ImageProps> = ({
       alt={alt}
       width={rectSize[size][0]}
       height={rectSize[size][1]}
-      className={`absolute blur-md grayscale object-cover max-w-full bg-gray-100 rounded-xl ${className}`}
-      loading={loading}
+      className={`absolute object-cover max-w-full bg-gray-100 rounded-xl ${className}`}
     />
   );
 };

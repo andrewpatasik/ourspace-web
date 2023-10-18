@@ -93,7 +93,7 @@ const History = () => {
             since then we already share <span className="font-bold">30795</span>{" "}
             texts, <span className="font-bold">1533</span> funny selfie
             (including memes ofc 😆) and <span className="font-bold">217</span>{" "}
-            random videos. We share memories, emotions and dreams.
+            random videos. And then on April 30th 2023 we finally choose to be together.
           </motion.p>
         </div>
         <motion.div
@@ -129,22 +129,19 @@ const History = () => {
             src="images/history/history-4.webp"
             alt="history-4"
             size="lg"
-            className="top-0 -left-20 h-[240px]"
-            loading="lazy"
+            className="top-0 -left-10 h-[240px]"
           />
           <Image
             src="images/history/history-1.webp"
             alt="history-3"
             size="sm"
             className="-top-32 inset-x-2/3 h-[100px]"
-            loading="lazy"
           />
           <Image
             src="images/history/history-2.webp"
             alt="history-2"
             size="lg"
             className="top-24 -right-5 h-[240px]"
-            loading="lazy"
           />
         </motion.div>
       </div>

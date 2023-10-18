@@ -75,8 +75,9 @@ const Music = () => {
               What we’ve listened together 📻
             </h2>
             <p className="text-music-paragraph font-light">
-              Sometimes words cannot express our feelings so we looking for
-              music that can express it 💞
+              I curated a playlist back when u were in need for some nice
+              words, I hope that it can always be a reminder for you even the
+              weather seems gloom 💞
             </p>
           </motion.div>
 
@@ -85,7 +86,6 @@ const Music = () => {
             alt="music-1"
             size="lg"
             className="-top-10 -left-10 h-[240px]"
-            loading="lazy"
             style={[
               {
                 stylePropName: "opacity",
@@ -102,8 +102,7 @@ const Music = () => {
             src="images/music/music-2.webp"
             alt="music-2"
             size="sm"
-            className="bottom-[35%] right-0 h-[100px]"
-            loading="lazy"
+            className="bottom-[40%] right-0 h-[100px]"
             style={[
               {
                 stylePropName: "opacity",

@@ -47,7 +47,6 @@ const Closing = () => {
             alt="closing-1"
             size="md"
             className="right-8 inset-y-1/3 w-[45%] h-[240px]"
-            loading="lazy"
             style={[
               {
                 stylePropName: "opacity",

@@ -126,7 +126,6 @@ const Gallery = () => {
             alt="drawing-1"
             size="lg"
             className="-bottom-20 -left-32 w-[200px] h-[260px]"
-            loading="lazy"
             style={[
               {
                 stylePropName: "opacity",
