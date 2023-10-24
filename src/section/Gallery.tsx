@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Image from "../components/Image";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
 import useObserver from "../hooks/useObserver";
+import Emoji from "../components/Emoji";
 
 const Gallery = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -39,12 +40,12 @@ const Gallery = () => {
         <div className="w-2/4 flex flex-col space-y-3">
           <div ref={observerRef} aria-hidden></div>
           <h2 className="text-history-headline tracking-tight text-5xl font-bold">
-            I collect ur amazing drawing 🎨
+            I collect ur amazing drawing <Emoji src="artist-pallete" className="w-10" align="align-baseline" />
           </h2>
           <p className="text-history-subheadline text-xl font-light">
             So you can see that how talented you are
             <br />
-            and may you always realized that 👍🏼 ✨
+            and may you always realized that <Emoji src="thumbs-up"  className="mx-1"/> <Emoji src="sparkles"  className="mx-1"/>
           </p>
         </div>
         <div className="relative w-9/12 grid grid-cols-3 gap-3">

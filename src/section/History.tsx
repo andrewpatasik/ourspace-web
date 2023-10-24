@@ -11,6 +11,7 @@ import Image from "../components/Image";
 import useObserver from "../hooks/useObserver";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
 import chatRec from "../data/chat.json";
+import Emoji from "../components/Emoji";
 
 const History = () => {
   const [chatMessage, setChatMessage] = useState<
@@ -83,16 +84,16 @@ const History = () => {
             style={{ opacity: titleOpacity }}
             className="text-history-headline text-5xl font-bold"
           >
-            👫The Story So Far...
+            <Emoji src="holding-hands" className="w-8 mr-4" align="align-baseline" />The Story So Far...
           </motion.h2>
           <motion.p
             style={{ opacity: titleOpacity }}
             className="text-history-subheadline text-xl font-light pr-12"
           >
-            Do you remember the first time we talked? It’s been a while ago for sure 😅, but
+            Do you remember the first time we talked? It’s been a while ago for sure <Emoji src="face-sweat" />, but
             since then we already share <span className="font-bold">30795</span>{" "}
             texts, <span className="font-bold">1533</span> funny selfie
-            (including memes ofc 😆) and <span className="font-bold">217</span>{" "}
+            (including memes ofc <Emoji src="smiling-closing-eyes" />) and <span className="font-bold">217</span>{" "}
             random videos. And then, on April 30th 2023 we finally choose to be together.
           </motion.p>
         </div>

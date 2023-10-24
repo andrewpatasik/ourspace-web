@@ -11,6 +11,7 @@ import { ButtonClickProps } from "./section";
 import { useEffect, useRef, useState } from "react";
 import moment from "moment";
 import useObserver from "../hooks/useObserver";
+import Emoji from "../components/Emoji";
 
 const startTime = moment(new Date("2022-12-01T14:02:43"));
 const currentTime = moment(new Date());
@@ -124,14 +125,16 @@ const Timer = () => {
             onClickEvt={handleButtonClick}
             className="absolute text-[10rem] top-16 active:opacity-50 active:-translate-y-5 transition"
           >
-            <span>🎉</span>
+            {/* <span>🎉</span> */}
+            <Emoji src="party-popper" className="w-[10rem]"/>
           </Button>
           <Button
             name="convetti-right"
             onClickEvt={handleButtonClick}
             className="absolute text-[10rem] flip right-0 top-16 active:opacity-50 active:-translate-y-5 transition"
           >
-            <span>🎉</span>
+            {/* <span>🎉</span> */}
+            <Emoji src="party-popper" className="w-[10rem]"/>
           </Button>
         </motion.div>
         <p className="mt-12 text-3xl">and it still counting 🌱</p>

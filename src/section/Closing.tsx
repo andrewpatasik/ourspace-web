@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Image from "../components/Image";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
 import useObserver from "../hooks/useObserver";
+import Emoji from "../components/Emoji";
 
 const Closing = () => {
   const titleRef = useRef<HTMLDivElement | null>(null);
@@ -26,10 +27,10 @@ const Closing = () => {
       <div className="sticky top-0 left-0 h-[100vh] flex flex-col justify-center">
         <motion.div style={{ opacity: titleOpacity }} ref={titleRef} className="flex flex-col grow justify-center space-y-3">
           <p className="text-xl text-closing-paragraph font-light">
-            And that’s it! hope u like this small present
+            And that’s it! I hope u like this small present
           </p>
           <h2 className="text-closing-headline tracking-tight text-5xl font-bold">
-            Happy Birthday 🎂🧸
+            Happy Birthday <Emoji src="cake" className="w-12 mx-1" align="align-bottom"/><Emoji src="teddy-bear" className="w-12 mx-1" align="align-bottom"/>
           </h2>
           <p className="text-xl text-closing-paragraph font-light">
             from your biggest fan,

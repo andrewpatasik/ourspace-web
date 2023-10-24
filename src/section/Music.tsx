@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Image from "../components/Image";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
 import useObserver from "../hooks/useObserver";
+import Emoji from "../components/Emoji";
 
 const Music = () => {
   const observerRef = useRef<HTMLDivElement | null>(null);
@@ -75,9 +76,9 @@ const Music = () => {
               What we’ve listened together 
             </h2>
             <p className="text-music-paragraph font-light text-xl">
-              I curated a playlist 📻 back when u were in need for some nice
+              I curated a playlist <Emoji src="radio" /> back when u were in need for some nice
               words, I hope that it can always be a reminder for you that there is always something good even the
-              weather seems gloom 💞
+              weather seems gloom <Emoji src="revolving-heart" />
             </p>
           </motion.div>
 

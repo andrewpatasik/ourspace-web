@@ -1,11 +1,12 @@
 type EmojiProp = {
   src: string;
   className?: string;
+  align?: string
 };
 
-const Emoji = ({ src, className }: EmojiProp) => {
+const Emoji = ({ src, className, align = "align-text-bottom" }: EmojiProp) => {
   return (
-    <span className="inline-block align-text-bottom">
+    <span className={`inline-block ${align}`}>
       <img
         src={`images/emoji/${src}.svg`}
         width={24}
