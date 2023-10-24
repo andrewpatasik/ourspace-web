@@ -107,34 +107,34 @@ const Timer = () => {
             recycle={isConfettiOn}
           />
         )}
-        <p className="text-2xl font-medium mb-8 text-center">
+        <p className="text-3xl font-medium mb-8 text-center">
           we’ve been spent time together for...
         </p>
         <motion.div ref={scope} className="relative w-9/12 flex flex-col">
           <div className="text-center mx-auto flex font-bold justify-around">
             <div>
-              <motion.h2 ref={countRef} className="text-9xl font-bold">
+              <motion.h2 ref={countRef} className="text-[10rem] font-bold">
                 {rounded}
               </motion.h2>
-              <p className="text-3xl">Days</p>
+              <p className="text-5xl">Days</p>
             </div>
           </div>
           <Button
             name="convetti-left"
             onClickEvt={handleButtonClick}
-            className="absolute text-9xl top-10 active:opacity-50 active:-translate-y-5 transition"
+            className="absolute text-[10rem] top-16 active:opacity-50 active:-translate-y-5 transition"
           >
             <span>🎉</span>
           </Button>
           <Button
             name="convetti-right"
             onClickEvt={handleButtonClick}
-            className="absolute text-9xl flip right-0 top-10 active:opacity-50 active:-translate-y-5 transition"
+            className="absolute text-[10rem] flip right-0 top-16 active:opacity-50 active:-translate-y-5 transition"
           >
             <span>🎉</span>
           </Button>
         </motion.div>
-        <p className="mt-12">And it still counting 🌱</p>
+        <p className="mt-12 text-3xl">and it still counting 🌱</p>
       </motion.div>
     </div>
   );

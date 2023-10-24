@@ -71,10 +71,10 @@ const Music = () => {
             style={{ opacity: titleOpacity }}
             className="flex flex-col space-y-4"
           >
-            <h2 className="text-music-headline text-4xl tracking-tight font-bold">
+            <h2 className="text-music-headline text-5xl tracking-tight font-bold">
               What we’ve listened together 
             </h2>
-            <p className="text-music-paragraph font-light">
+            <p className="text-music-paragraph font-light text-xl">
               I curated a playlist 📻 back when u were in need for some nice
               words, I hope that it can always be a reminder for you that there is always something good even the
               weather seems gloom 💞
@@ -85,7 +85,7 @@ const Music = () => {
             src="images/music/music-1.webp"
             alt="music-1"
             size="lg"
-            className="-top-10 -left-10 h-[240px]"
+            className="-top-10 -left-10 h-[300px]"
             style={[
               {
                 stylePropName: "opacity",
@@ -102,7 +102,7 @@ const Music = () => {
             src="images/music/music-2.webp"
             alt="music-2"
             size="sm"
-            className="bottom-[40%] right-0 h-[100px]"
+            className="bottom-[40%] right-0 h-[130px]"
             style={[
               {
                 stylePropName: "opacity",

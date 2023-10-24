@@ -9,7 +9,7 @@ const App = () => {
     <>
       <Helmet>
         <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-        <title>𝓯𝓸𝓻 𝓰𝓻𝓮𝓼</title>
+        <title>𝓱𝓪𝓹𝓹𝔂 𝓫𝓲𝓻𝓽𝓱𝓭𝓪𝔂 𝓰𝓻𝓮𝓼</title>
       </Helmet>
 
     <BackgroundColorProvider>

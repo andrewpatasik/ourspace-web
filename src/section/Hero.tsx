@@ -3,6 +3,7 @@ import Image from "../components/Image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useBackgroundColor } from "../hooks/useBackgroundColor";
 import useObserver from "../hooks/useObserver";
+import Emoji from "../components/Emoji";
 
 type AnimateObjectType = {
   [key: string]: number;
@@ -69,15 +70,15 @@ const Hero = () => {
             style={{ opacity, y: headlineTranslateY }}
             className="text-5xl sm:text-7xl xl:text-9xl text-hero-headline tracking-thighter leading-tight sm:leading-none font-black"
           >
-            Hey, U Turned 23 Today 🎉
+            Hey, U Turned 23 Today <Emoji src="party-popper" className="w-36 h-36"/>
           </motion.h1>
           <motion.p
             style={{ opacity, y: headlineTranslateY }}
-            className="w-full sm:w-11/12 xl:w-8/12 text-hero-subheadline text-xl sm:text-xl tracking-tight leading-relaxed sm:leading-normal xl:leading-none"
+            className="w-full sm:w-11/12 xl:w-8/12 text-hero-subheadline text-xl sm:text-xl tracking-tight leading-relaxed sm:leading-normal xl:leading-snug"
           >
             Congrats for made it to 23! this is a little space in the digital
             ocean called "The Internet" that i created for you to celebrate your
-            special day, I hope you like it 😊
+            special day, I hope you like it <Emoji src="smiling-face" />
           </motion.p>
         </header>
 
@@ -85,7 +86,7 @@ const Hero = () => {
           src="images/hero/hero-1.webp"
           alt="hero-1"
           size="lg"
-          className="-bottom-12 sm:bottom-0 -left-4 sm:h-[200px] xl:h-[260px]"
+          className="-bottom-12 sm:bottom-0 -left-6 sm:h-[200px] xl:h-[300px]"
           style={[
             {
               stylePropName: "opacity",
@@ -97,7 +98,7 @@ const Hero = () => {
           src="images/hero/hero-2.webp"
           alt="hero-2"
           size="lg"
-          className="top-1 right-1 sm:inset-y-24 sm:inset-x-[8.5rem] sm:h-[240px] xl:h-[270px]"
+          className="top-1 right-1 sm:inset-y-24 sm:inset-x-[8.5rem] sm:h-[240px] xl:h-[290px]"
           style={[
             {
               stylePropName: "opacity",
@@ -122,7 +123,7 @@ const Hero = () => {
           src="images/hero/gif-1.gif"
           alt="gif-1"
           size="lg"
-          className="top-10 sm:inset-y-1/5 left-1 sm:inset-x-1/2 h-[220px]"
+          className="top-10 sm:inset-y-1/5 left-1 sm:inset-x-1/2 h-[280px]"
           style={[
             {
               stylePropName: "opacity",
@@ -134,7 +135,7 @@ const Hero = () => {
           src="images/hero/hero-3.webp"
           alt="hero-3"
           size="sm"
-          className="bottom-10 inset-x-2/3 h-[120px]"
+          className="bottom-10 inset-x-2/3 h-[100px]"
           style={[
             {
               stylePropName: "opacity",
@@ -146,7 +147,7 @@ const Hero = () => {
           src="images/hero/hero-4.webp"
           alt="hero-4"
           size="lg"
-          className="top-20 right-14 h-[200px] z-20"
+          className="top-20 right-14 h-[260px] z-20"
           style={[
             {
               stylePropName: "opacity",
@@ -158,7 +159,7 @@ const Hero = () => {
           src="images/hero/hero-5.webp"
           alt="hero-5"
           size="lg"
-          className="bottom-0 right-0 h-[200px]"
+          className="bottom-0 right-0 h-[260px]"
           style={[
             {
               stylePropName: "opacity",
@@ -173,7 +174,7 @@ const Hero = () => {
             className="text-xl sm:text-2xl text-hero-paragraph font-semibold"
           >
             
-            Start here 👀
+            Start here <Emoji src="eyes" className="w-8 ml-4" />
           </motion.p>
         </div>
       </div>

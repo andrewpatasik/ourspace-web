@@ -81,13 +81,13 @@ const History = () => {
         <div className="w-3/4 flex flex-col space-y-3">
           <motion.h2
             style={{ opacity: titleOpacity }}
-            className="text-history-headline text-4xl font-bold"
+            className="text-history-headline text-5xl font-bold"
           >
             👫The Story So Far...
           </motion.h2>
           <motion.p
             style={{ opacity: titleOpacity }}
-            className="text-history-subheadline font-light"
+            className="text-history-subheadline text-xl font-light pr-12"
           >
             Do you remember the first time we talked? It’s been a while ago for sure 😅, but
             since then we already share <span className="font-bold">30795</span>{" "}
@@ -129,19 +129,19 @@ const History = () => {
             src="images/history/history-4.webp"
             alt="history-4"
             size="lg"
-            className="top-0 -left-10 h-[240px]"
+            className="top-0 -left-10 h-[300px]"
           />
           <Image
             src="images/history/history-1.webp"
             alt="history-3"
             size="sm"
-            className="-top-32 inset-x-2/3 h-[100px]"
+            className="-top-32 inset-x-2/3 h-[120px]"
           />
           <Image
             src="images/history/history-2.webp"
             alt="history-2"
             size="lg"
-            className="top-24 -right-5 h-[240px]"
+            className="top-32 -right-5 h-[300px]"
           />
         </motion.div>
       </div>

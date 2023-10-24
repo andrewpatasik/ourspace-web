@@ -24,9 +24,9 @@ type StyleType = {
 };
 
 const rectSize: rectSizeProps = {
-  sm: [130, "auto"],
+  sm: [160, "auto"],
   md: [500, "auto"],
-  lg: [160, "auto"],
+  lg: [200, "auto"],
 };
 
 const imagePlaceholder: imagePlaceholderProps = {

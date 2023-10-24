@@ -38,10 +38,10 @@ const Gallery = () => {
       >
         <div className="w-2/4 flex flex-col space-y-3">
           <div ref={observerRef} aria-hidden></div>
-          <h2 className="text-history-headline tracking-tight text-4xl font-bold">
+          <h2 className="text-history-headline tracking-tight text-5xl font-bold">
             I collect ur amazing drawing 🎨
           </h2>
-          <p className="text-history-subheadline font-light">
+          <p className="text-history-subheadline text-xl font-light">
             So you can see that how talented you are
             <br />
             and may you always realized that 👍🏼 ✨
@@ -51,7 +51,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-1.webp"
             alt="gallery-1"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -59,7 +59,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-2.webp"
             alt="gallery-2"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -67,7 +67,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-3.webp"
             alt="gallery-3"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -75,7 +75,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-4.webp"
             alt="gallery-4"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -83,7 +83,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-5.webp"
             alt="gallery-5"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -91,7 +91,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-6.webp"
             alt="gallery-6"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -99,7 +99,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-7.webp"
             alt="gallery-7"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -107,7 +107,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-8.webp"
             alt="gallery-8"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -115,7 +115,7 @@ const Gallery = () => {
           <img
             src="images/drawing/gallery-9.webp"
             alt="gallery-9"
-            className="w-full h-32 rounded-lg z-10 object-cover"
+            className="w-full h-36 rounded-lg z-10 object-cover"
             loading="lazy"
             width={161}
             height={128}
@@ -125,7 +125,7 @@ const Gallery = () => {
             src="images/drawing/drawing-1.webp"
             alt="drawing-1"
             size="lg"
-            className="-bottom-20 -left-32 w-[200px] h-[260px]"
+            className="-bottom-20 -left-32 w-[200px] h-[300px]"
             style={[
               {
                 stylePropName: "opacity",
