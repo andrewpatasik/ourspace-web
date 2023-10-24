@@ -24,7 +24,7 @@ const Hero = () => {
   const observerRef = useRef<HTMLDivElement | null>(null);
 
   const { setColor } = useBackgroundColor();
-  useObserver(targetRef, () => {
+  const [ isVisible ] = useObserver(targetRef, () => {
     if (setColor) setColor("bg-hero-background");
   });
 
@@ -64,7 +64,7 @@ const Hero = () => {
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div ref={observerRef} aria-hidden></div>
-      <div className="fixed top-0 left-0 -mx-4 sm:-mx-8 px-4 sm:px-8 h-[100vh] flex flex-col">
+      <div className={`${!isVisible ? 'relative' : 'fixed'} top-0 left-0 -mx-4 sm:-mx-8 px-4 sm:px-8 h-[100vh] flex flex-col`}>
         <header className="w-full sm:w-9/12 pb-6 flex-1 mx-auto flex flex-col items-center justify-end sm:text-center space-y-4 z-10">
           <motion.h1
             style={{ opacity, y: headlineTranslateY }}
